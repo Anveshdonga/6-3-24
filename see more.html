@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            border: 1px solid;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+            /* align-items: center; */
+            /* justify-content: center; */
+        }
+    </style>
+</head>
+<body>
+
+    <img src="" alt="">
+    <p></p>
+    <script>
+        var a=localStorage.getItem("info")
+        var b=JSON.parse(a)
+        console.log(b);
+
+
+        var para=document.getElementsByTagName("p")
+        para[0].innerText=b["Title"]
+     
+
+        var img=document.getElementsByTagName("img")
+    img[0].setAttribute("src",b["Image"])
+    // img[0].style.width="250px"
+
+     
+    // for(i=1;i<8;i++){
+    // var pra=document.createElement("p")
+    // document.body.appendChild(pra)
+    // pra.innerText=b["Ingredients"][i]
+    //  }
+    
+     var pr1=document.createElement("p")
+     document.body.appendChild(pr1)
+     pr1.innerText=b["Instructions"]
+    
+    </script>
+</body>
+</html>

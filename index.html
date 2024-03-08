@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            backdrop-filter: blur(5px);
+            
+            /* background-image: url(./900x500_banner_HK-Types-of-foods-that-you-should-eat-a-lot-rarely-and-occasionally.png); */
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        .dv1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+       <h1 id="hed">click on receipes</h1>
+   <div class="dv1">
+    <img src="./Recipes-Banner.jpg" height="200px" alt="">
+   </div>
+   <!-- <div class="dv1"></div>
+   <div class="dv1"></div>
+   <div class="dv1"></div> -->
+
+
+    <script>
+  
+
+var div1=document.getElementsByClassName("dv1")
+div1[0].addEventListener("click",function(){
+
+const url = 'https://food-recipes-with-images.p.rapidapi.com/?q=chicken%20soup';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'd8763788f2msh4946c6991965a03p14b082jsn73e8f23af5d1',
+		'X-RapidAPI-Host': 'food-recipes-with-images.p.rapidapi.com'
+	}
+};
+
+ fetch(url,options).then((a)=>{
+	return a.json()
+ }).then((data)=>{
+	console.log(data)
+
+    localStorage.setItem("dataa",JSON.stringify(data))
+
+
+    })
+   
+    window.location.assign("loc1.html")
+}) 
+    div1[1].addEventListener("click",function(){
+        window.location.assign("loc2.html")
+    })
+
+    div1[2].addEventListener("click",function(){
+        window.location.assign("loc3.html")
+    })
+
+    div1[3].addEventListener("click",function(){
+        window.location.assign("loc4.html")
+    })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .main{
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+       #dv{
+        display: flex;
+        flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 3px 3px  rgb(145, 141, 141);
+      
+        border: 1px solid black;
+        /* height: 300px; */
+        width: 300px;
+        
+       }
+       #im{
+        height: 240px;
+        width: 300px;
+        
+        /* border-radius: ; */
+       }
+      #pg{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+       margin-bottom: 20px;
+      }
+       #semr{
+        border: 1px solid rgb(169, 170, 116);
+        background-color: rgb(249, 253, 2);
+        height: 35px;
+        width: 100px;
+        color: rgb(0, 0, 0);
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+       }
+      #semr:active{
+        background-color: rgb(196, 185, 28);
+        color: white;
+
+      }
+      .bt{
+        border-radius: 5px;
+        background-color: rgb(247, 245, 220);
+        height: 25px;
+        width: 80px;
+        background-color: rgb(87, 82, 82);
+        color: white;   
+      }
+      .bt:active{
+        background-color:rgb(0, 0, 0) ;
+        color:  rgb(255, 255, 255);
+      }
+    </style>
+</head>
+<body>
+    <div class="main">
+
+    </div>
+   
+    <script>
+        var a=localStorage.getItem("dataa")
+        var b=JSON.parse(a)
+        console.log(b);
+        
+        for(let i=0;i<5;i++){
+             var main=document.getElementsByClassName("main")
+            div1=document.createElement("div")
+            main[0].appendChild(div1)
+            div1.setAttribute("id","dv")
+
+            imeg=document.createElement("img")
+            div1.appendChild(imeg)
+            imeg.setAttribute("src",b["d"][i]["Image"])
+            imeg.setAttribute("id","im")
+            
+            
+            pra=document.createElement("p")
+            div1.appendChild(pra)
+            pra.innerText=b["d"][i]["Title"]
+
+            butn=document.createElement("button")
+            div1.appendChild(butn)
+            butn.innerText="see more"
+            butn.setAttribute("id","semr")
+            butn.addEventListener("click",function(){
+                window.localStorage.setItem("info",JSON.stringify(b["d"][i]))
+             window.location.assign("./see more.html")
+            })
+
+        }
+
+        div2=document.createElement("div")
+        document.body.appendChild(div2)
+        div2.setAttribute("id","pg")
+
+
+        
+        var btn=document.createElement("button")
+        div2.appendChild(btn)
+
+        btn.innerText="page-1"
+        btn.setAttribute("class","bt")
+        btn.addEventListener("click",function(){
+            window.location.assign("loc1.html")
+        })
+
+        var btn=document.createElement("button")
+        div2.appendChild(btn)
+
+        btn.innerText="page-2"
+        btn.setAttribute("class","bt")
+        btn.addEventListener("click",function(){
+            window.location.assign("loc2.html")
+        })
+        var btn=document.createElement("button")
+        div2.appendChild(btn)
+        
+        btn.innerText="page-3"
+        btn.setAttribute("class","bt")
+        btn.addEventListener("click",function(){
+            window.location.assign("loc3.html")
+        })
+
+        var btn=document.createElement("button")
+        div2.appendChild(btn)
+        
+        btn.innerText="page-4"
+        btn.setAttribute("class","bt")
+        btn.addEventListener("click",function(){
+            window.location.assign("loc4.html")
+        })
+
+    </script>
+</body>
+</html>
